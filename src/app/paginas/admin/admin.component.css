@@ -1,0 +1,228 @@
+/* ---------- CONTENEDOR ---------- */
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Inter', sans-serif;
+  padding: 0 15px;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #222;
+}
+
+/* ---------- LAYOUT FLEX ---------- */
+.dashboard-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ---------- FORM CARD ---------- */
+.dashboard-form-card {
+  flex: 1;
+  min-width: 320px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-form-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease;
+}
+
+.form-input:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+/* ---------- PREVIEW ---------- */
+.preview {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.preview img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+/* ---------- BOTONES FORM ---------- */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-save {
+  background: #4caf50;
+  color: white;
+  border: none;
+}
+
+.btn-save:hover {
+  background: #3d8f41;
+}
+
+.btn-clear {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.btn-clear:hover {
+  background: #e0e0e0;
+}
+
+/* ---------- PRODUCT CARDS ---------- */
+.dashboard-product-cards {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 15px 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.stock {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: auto;
+}
+
+/* ---------- BOTONES PRODUCTO ---------- */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+}
+
+.card-actions .btn {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.edit {
+  background: #ffa900;
+  color: white;
+  border: none;
+}
+
+.edit:hover {
+  background: #e59400;
+}
+
+.delete {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+}
+
+.delete:hover {
+  background: #e14242;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+}

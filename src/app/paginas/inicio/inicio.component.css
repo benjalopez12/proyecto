@@ -1,0 +1,211 @@
+/* ============================
+   HERO / INICIO
+============================ */
+
+.hero {
+    background: #f9fafb; /* Fondo suave */
+    padding: 80px 40px;
+    border-bottom: 2px solid #e5e7eb;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Texto superior pequeño */
+  .eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #6b7280;
+  }
+  
+  /* Título principal */
+  .hero-title {
+    color: #1f2937;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+  
+  /* Descripción principal */
+  .hero-description {
+    color: #4b5563;
+    max-width: 550px;
+  }
+  
+  /* CTA / Botones */
+  .hero-cta .btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+  }
+  
+  .hero-cta .btn-primary {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+  }
+  
+  .hero-cta .btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  .hero-cta .btn-outline-secondary {
+    color: #374151;
+    border-color: #9ca3af;
+  }
+  
+  .hero-cta .btn-outline-secondary:hover {
+    background-color: #e5e7eb;
+    border-color: #9ca3af;
+  }
+  
+  /* Texto extendido */
+  .descripcion-detallada {
+    max-width: 600px;
+    line-height: 1.6;
+    color: #6b7280;
+  }
+  
+  /* ============================
+     CARRUSEL
+  ============================ */
+  
+  .hero-image-container {
+    max-width: 550px;
+  }
+  
+  .carousel-inner img {
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  /* Controles del carrusel */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1); /* Iconos blancos */
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 8%;
+  }
+  
+  /* ============================
+     RESPONSIVE
+  ============================ */
+  
+  @media (max-width: 992px) {
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+  
+    .hero-content {
+      order: 2;
+    }
+  
+    .hero-image-container {
+      order: 1;
+      margin-bottom: 40px;
+    }
+  
+    .carousel-inner img {
+      height: 350px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-description {
+      font-size: 1rem;
+    }
+  
+    .carousel-inner img {
+      height: 280px;
+    }
+    .hero {
+        background-color: #fff;
+        color: #333;
+        transition: all 0.3s ease;
+      }
+      
+      .hero .hero-title,
+      .hero .eyebrow,
+      .hero .hero-description,
+      .hero .descripcion-detallada p {
+        color: #333;
+      }
+      
+      .hero .btn-primary {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+        color: #fff;
+      }
+      
+      .hero .btn-outline-secondary {
+        color: #3b82f6;
+        border-color: #3b82f6;
+      }
+      
+      /* MODO OSCURO */
+      body.dark-mode .hero {
+        background-color: #1c1c1c;
+      }
+      
+      body.dark-mode .hero .hero-title,
+      body.dark-mode .hero .eyebrow,
+      body.dark-mode .hero .hero-description,
+      body.dark-mode .hero .descripcion-detallada p {
+        color: #f0f0f0;
+      }
+      
+      body.dark-mode .hero .btn-primary {
+        background-color: #1976d2;
+        border-color: #1976d2;
+      }
+      
+      body.dark-mode .hero .btn-outline-secondary {
+        color: #90caf9;
+        border-color: #90caf9;
+      }
+      /* Estilos para la sección de Publicidad/Banner */
+
+.publicidad-banner {
+    margin-top: 30px; /* Espacio superior */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+.banner-img {
+    /* Establece una altura máxima para que el banner no sea excesivamente alto */
+    max-height: 500px; 
+    /* Asegura que la imagen cubra el área sin distorsionarse, recortando si es necesario */
+    object-fit: cover; 
+    /* Opcional: añade un filtro para que el texto de superposición resalte más */
+    filter: brightness(0.75); 
+}
+
+.banner-overlay {
+    /* Estilos para el texto de publicidad superpuesto */
+    background: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+    padding: 30px 50px !important;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.banner-overlay h2 {
+    font-size: 2.5rem; /* Ajuste para el título */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .banner-img {
+        max-height: 300px; /* Altura más pequeña en móviles */
+    }
+    .banner-overlay {
+        padding: 20px 30px !important;
+    }
+    .banner-overlay h2 {
+        font-size: 1.5rem;
+    }
+}
+  }
+  

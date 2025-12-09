@@ -1,0 +1,51 @@
+<section class="productos-section">
+  <div class="productos-header">
+    <h2>Nuestros Productos</h2>
+    <p>Descubrí nuestras mejores ofertas y artículos destacados</p>
+  </div>
+
+  <!-- Loader -->
+  <div *ngIf="cargando" class="loader-container">
+    <div class="loader"></div>
+    <span>Cargando productos...</span>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="error-msg">
+    {{ error }}
+  </div>
+
+  <!-- Grid de productos -->
+  <div class="productos-grid">
+    <div *ngFor="let producto of productos" class="producto-card">
+      
+      <div class="producto-imagen">
+        <img 
+          [src]="'http://localhost/api_proyecto/public/uploads/' + producto.imagen"
+          alt="{{ producto.nombre }}"
+        />
+      </div>
+
+      <div class="producto-info">
+        <h3>{{ producto.nombre }}</h3>
+        <p class="descripcion">{{ producto.descripcion }}</p>
+
+        <div class="precio">
+          ${{ producto.precio | number:'1.2-2' }}
+        </div>
+      </div>
+
+      <div class="acciones-card">
+        <button class="btn add-cart" (click)="agregarAlCarrito(producto)">
+          <i class="bi bi-cart-plus"></i>
+          Añadir al carrito
+        </button>
+
+        <button class="btn add-fav" (click)="agregarAFavoritos(producto)">
+          <i class="bi bi-heart"></i>
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

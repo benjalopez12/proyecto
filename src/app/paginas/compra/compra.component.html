@@ -1,0 +1,57 @@
+<section class="checkout-modern">
+
+  <h2 class="checkout-modern-title">Finaliza tu compra</h2>
+
+  <!-- Carrito vacío -->
+  <div *ngIf="productos.length === 0" class="checkout-empty-modern">
+    <p>Tu carrito está vacío 😢</p>
+    <a routerLink="/productos" class="btn-explorar-modern">Explorar Productos</a>
+  </div>
+
+  <!-- Productos en el carrito -->
+  <div *ngIf="productos.length > 0" class="checkout-products-modern">
+    <div *ngFor="let p of productos" class="checkout-card-modern">
+
+      <div class="card-image-modern">
+        <img *ngIf="p.imagen" [src]="'http://localhost/api_proyecto/public/uploads/' + p.imagen" alt="{{ p.nombre }}">
+      </div>
+
+      <div class="card-info-modern">
+        <h3>{{ p.nombre }}</h3>
+        <p class="descripcion">{{ p.descripcion }}</p>
+        <div class="card-meta-modern">
+          <span>Cantidad: {{ p.cantidad }}</span>
+          <span>Precio: ${{ p.precio_unitario }}</span>
+          <span>Subtotal: ${{ p.subtotal }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Resumen de compra -->
+  <div *ngIf="productos.length > 0" class="checkout-summary-modern">
+    <h3>Resumen de tu compra</h3>
+    <div class="summary-row">
+      <span>Subtotal</span><span>$ {{ subtotal }}</span>
+    </div>
+    <div class="summary-row">
+      <span>Envío</span><span>$ {{ envio }}</span>
+    </div>
+    <hr>
+    <div class="summary-row total">
+      <span>Total</span><span>$ {{ total }}</span>
+    </div>
+  </div>
+
+  <!-- Formulario de envío -->
+  <div *ngIf="productos.length > 0" class="checkout-form-modern">
+    <h3>Datos de envío</h3>
+    <input type="text" placeholder="Dirección" [(ngModel)]="datos.direccion">
+    <input type="text" placeholder="Teléfono" [(ngModel)]="datos.telefono">
+    <button (click)="finalizarCompra()" [disabled]="cargando">
+      {{ cargando ? 'Procesando...' : 'Confirmar compra' }}
+    </button>
+  </div>
+
+</section>

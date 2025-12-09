@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" routerLink="/inicio">
+      <img src="/img/logo.jpg" alt="Logo" class="logo">
+    </a>
+
+    <!-- Toggle para móvil -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent" aria-controls="navbarContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+      <ul class="navbar-nav gap-3 align-items-center me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a routerLink="/inicio" routerLinkActive="active" class="nav-link">INICIO</a></li>
+        <li class="nav-item"><a routerLink="/productos" routerLinkActive="active" class="nav-link">PRODUCTOS</a></li>
+        <li class="nav-item"><a routerLink="/ofertas" routerLinkActive="active" class="nav-link">OFERTAS</a></li>
+        <li class="nav-item"><a routerLink="/contacto" routerLinkActive="active" class="nav-link">CONTACTO</a></li>
+        <li class="nav-item"><a routerLink="/compras" routerLinkActive="active" class="nav-link">COMPRAS</a></li>
+        <li class="nav-item" *ngIf="usuario?.rol === 'admin'">
+          <a routerLink="/admin" routerLinkActive="active" class="nav-link text-warning fw-bold">ADMIN</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Iconos y usuario -->
+    <ul class="navbar-nav d-flex flex-row align-items-center ms-3 gap-2">
+
+      <!-- Carrito -->
+      <li class="nav-item position-relative">
+        <a class="nav-link" routerLink="/carrito">
+          <i class="bi bi-cart-fill fs-5"></i>
+          <span class="badge rounded-pill bg-danger" *ngIf="cantidadProductos > 0">{{ cantidadProductos }}</span>
+        </a>
+      </li>
+
+      <!-- Favoritos -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/favorito">
+          <i class="bi bi-heart-fill text-danger fs-5"></i>
+        </a>
+      </li>
+
+      <!-- Usuario -->
+      <ng-container *ngIf="authService.isLoggedIn(); else sinSesion">
+        <li class="nav-item d-none d-lg-block">
+          <span class="user-label nav-link">{{ usuario?.nombre }}</span>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger btn-sm" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i>
+          </button>
+        </li>
+      </ng-container>
+
+      <ng-template #sinSesion>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" title="Iniciar sesión">
+            <i class="bi bi-person fs-5"></i>
+          </a>
+        </li>
+      </ng-template>
+
+      <!-- Modo oscuro -->
+      <li class="nav-item">
+        <button class="btn btn-dark btn-sm d-flex align-items-center" (click)="alternarModoOscuro()">
+          <i class="bi fs-6" [ngClass]="modoOscuroActivado ? 'bi-sun-fill' : 'bi-moon-fill'"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

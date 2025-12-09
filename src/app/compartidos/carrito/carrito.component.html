@@ -1,0 +1,65 @@
+<section class="carrito-nike">
+
+  <h2 class="carrito-title">Tu Carrito</h2>
+
+  <!-- Carrito con productos -->
+  <div *ngIf="carrito.length > 0; else vacio" class="carrito-items">
+
+    <div *ngFor="let item of carrito" class="carrito-item">
+
+      <!-- Imagen del producto -->
+      <div class="item-img">
+        <img *ngIf="item.imagen" [src]="'http://localhost/api_proyecto/public/uploads/' + item.imagen" />
+      </div>
+
+      <!-- Información del producto -->
+      <div class="item-info">
+        <h3>{{ item.nombre }}</h3>
+        <p class="precio">$ {{ item.precio_unitario }}</p>
+
+        <!-- Cantidad -->
+        <div class="item-cantidad">
+          <label>Cantidad:</label>
+          <div class="cantidad-controls">
+            <button (click)="cambiarCantidad(item.id_detalle_carrito, item.cantidad - 1)" [disabled]="item.cantidad <=1">-</button>
+            <input type="number" [value]="item.cantidad" (change)="cambiarCantidad(item.id_detalle_carrito, $event)" min="1">
+            <button (click)="cambiarCantidad(item.id_detalle_carrito, item.cantidad + 1)">+</button>
+          </div>
+        </div>
+
+        <p class="subtotal">Subtotal: $ {{ item.subtotal }}</p>
+
+        <!-- Botones -->
+        <div class="item-actions">
+          <button class="btn-delete" (click)="eliminar(item.id_detalle_carrito)">
+            <i class="bi bi-trash-fill"></i> Eliminar
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESUMEN TOTAL -->
+    <div class="carrito-resumen">
+      <h3>Resumen de Compra</h3>
+      <p>Subtotal: <strong>$ {{ total }}</strong></p>
+      <p>Envío: <strong>$ {{ envio }}</strong></p>
+      <p>Total: <strong>$ {{ total + envio }}</strong></p>
+
+      <div class="resumen-actions">
+        <button class="btn-clear" (click)="vaciarCarrito()">Vaciar carrito</button>
+        <button class="btn-buy" (click)="irACompra()">Finalizar compra</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CARRITO VACÍO -->
+  <ng-template #vacio>
+    <div class="carrito-vacio">
+      <p>Tu carrito está vacío.</p>
+      <a routerLink="/productos" class="btn-explorar">Explorar Productos</a>
+    </div>
+  </ng-template>
+
+</section>

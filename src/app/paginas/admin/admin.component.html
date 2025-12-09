@@ -1,0 +1,77 @@
+<section class="admin-dashboard">
+
+  <h2 class="dashboard-title">Panel de Administración</h2>
+
+  <div class="dashboard-content">
+
+    <!-- FORMULARIO -->
+    <div class="dashboard-form-card">
+      <h3>{{ editando ? 'Editar Producto' : 'Crear Producto' }}</h3>
+
+      <form [formGroup]="formulario" (ngSubmit)="guardar()">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input formControlName="nombre" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label>Precio</label>
+            <input formControlName="precio" type="number" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label>Stock</label>
+            <input formControlName="stock" type="number" class="form-input" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea formControlName="descripcion" rows="3" class="form-input"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Imagen</label>
+          <input type="file" (change)="onFileChange($event)" class="form-input" />
+        </div>
+
+        <div class="preview" *ngIf="imagenPrevia">
+          <img [src]="imagenPrevia" />
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-save" type="submit">
+            {{ editando ? 'Actualizar' : 'Crear' }}
+          </button>
+          <button class="btn btn-clear" type="button" (click)="reset()">Limpiar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- LISTADO DE PRODUCTOS -->
+    <div class="dashboard-product-cards">
+      <div *ngFor="let p of productos" class="product-card">
+        <div class="card-image">
+          <img *ngIf="p.imagen" [src]="'http://localhost/api_proyecto/public/uploads/' + p.imagen" />
+        </div>
+        <div class="card-info">
+          <h4>{{ p.nombre }}</h4>
+          <p class="desc">{{ p.descripcion }}</p>
+          <span class="price">$ {{ p.precio }}</span>
+          <span class="stock">Stock: {{ p.stock }}</span>
+        </div>
+        <div class="card-actions">
+          <button class="btn edit" (click)="editar(p)">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+          <button class="btn delete" (click)="eliminar(p.id)">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

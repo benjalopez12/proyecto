@@ -1,0 +1,30 @@
+/*  Modo oscuro aplicado a todo el body */
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/*  Estilo del nav en modo oscuro */
+.dark-mode .navbar {
+  background-color: #333333 !important;
+}
+
+/*  Estilo de los enlaces del nav en modo oscuro */
+.dark-mode .nav-link {
+  color: #f0f0f0 !important;
+}
+
+/*  Estilo del boton que alterna entre modo claro y oscuro */
+.dark-mode .btn-outline-light {
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+
+/* Aaplicamos el color claro a los títulos y textos en toda la web */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode a {
+  color: #f0f0f0 !important;
+}

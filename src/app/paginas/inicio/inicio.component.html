@@ -1,0 +1,78 @@
+<section class="hero d-flex flex-wrap align-items-center justify-content-between px-5 py-5">
+  <!-- Contenido textual -->
+  <div class="hero-content col-lg-6 mb-4 mb-lg-0">
+    <span class="eyebrow d-block text-uppercase text-muted mb-2">Osos Hermanos Wear</span>
+    <h1 class="hero-title display-5 fw-bold">Bienvenido a nuestra tienda</h1>
+
+    <p class="hero-description lead">
+      Diseños únicos, cómodos y pensados para acompañarte todos los días.
+      Calidad, estilo y creatividad en cada prenda.
+    </p>
+
+    <!-- Botones -->
+    <div class="hero-cta d-flex gap-3 mt-3">
+      <a routerLink="/productos" class="btn btn-primary">Ver Colecciones</a>
+      <a href="#" class="btn btn-outline-secondary">Conocér más</a>
+    </div>
+
+    <!-- Texto extendido estático (opcional) -->
+    <div class="descripcion-detallada mt-4">
+      <p class="text-muted">
+        En Osos Hermanos Wear buscamos ofrecer prendas especiales, con materiales seleccionados y un diseño moderno.
+        Nuestro objetivo es que cada persona encuentre algo que exprese su personalidad y estilo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Carrusel de imágenes -->
+  <div class="hero-image-container col-lg-6">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner rounded shadow-sm">
+        
+        <div class="carousel-item active">
+          <img src="/img/inicio1.jpg" class="d-block w-100" alt="Imagen 1 destacada">
+        </div>
+        
+        <div class="carousel-item">
+          <img src="/img/inicio2.webp" class="d-block w-100" alt="Imagen 2 destacada">
+        </div>
+        
+        <div class="carousel-item">
+          <img src="/img/inicio3.webp" class="d-block w-100" alt="Imagen 3 destacada">
+        </div>
+        
+        
+
+      </div>
+
+      <!-- Controles -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+    <div class="py-4"></div> 
+  </div>
+</section>
+<section class="publicidad-banner">
+  <div class="container-fluid p-0">
+      <div class="position-relative text-center">
+          <img 
+              src="/img/inicio.webp" 
+              alt="Banner de Publicidad - Colección Principal" 
+              class="img-fluid w-100 banner-img"
+          >
+          
+          <div class="banner-overlay position-absolute top-50 start-50 translate-middle text-white p-3 rounded">
+              <h2 class="display-4 fw-bold mb-3">¡Oferta Especial!</h2>
+              <p class="lead d-none d-md-block">Descubre la nueva colección con hasta un 30% de descuento. Calidad que se siente.</p>
+              <a routerLink="/ofertas" class="btn btn-warning btn-lg fw-bold mt-2">Comprar Ahora</a>
+          </div>
+      </div>
+  </div>
+</section>

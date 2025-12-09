@@ -1,0 +1,43 @@
+<section class="favoritos-nike">
+
+    <h2 class="favoritos-title">Tus Favoritos</h2>
+  
+    <div *ngIf="favoritos.length > 0; else vacio" class="favoritos-items">
+  
+      <div *ngFor="let item of favoritos" class="favorito-item">
+  
+        <div class="item-img">
+          <img *ngIf="item.imagen" [src]="'http://localhost/api_proyecto/public/uploads/' + item.imagen" />
+        </div>
+  
+        <div class="item-info">
+          <h3>{{ item.nombre }}</h3>
+          <p class="precio">$ {{ item.precio_unitario }}</p>
+  
+          <div class="item-actions">
+            <button class="btn-delete" (click)="eliminar(item.id_producto)">
+              <i class="bi bi-trash-fill"></i> Eliminar
+            </button>
+            <button class="btn-buy" (click)="irAProducto(item.id_producto)">
+              Ver Producto
+            </button>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="favoritos-resumen">
+        <button class="btn-clear" (click)="vaciarFavoritos()">Vaciar favoritos</button>
+      </div>
+  
+    </div>
+  
+    <ng-template #vacio>
+      <div class="favoritos-vacio">
+        <p>No tienes favoritos aún.</p>
+        <a routerLink="/productos" class="btn-explorar">Explorar Productos</a>
+      </div>
+    </ng-template>
+  
+  </section>
+  
